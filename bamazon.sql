@@ -12,7 +12,7 @@ CREATE TABLE products (
 );
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-      VALUE("Fallout 4","Gaming", 59.99, 1000);
+  VALUE("Fallout 4","Gaming", 59.99, 1000);
 
 INSERT INTO products (product_name, department_name, price, stock_quantity)
   VALUE("Civilization 6","Gaming", 59.99, 1000);

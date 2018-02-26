@@ -5,7 +5,7 @@ var Table = require("cli-table");
 //MySQL connection information
 var connection = mysql.createConnection({
     host: "localhost",
-    port: 3300,
+    port: 3306,
     user: "root",
     password: "Walton!!22",
     database: "bamazon"
@@ -24,7 +24,7 @@ connection.connect(function(err) {
 //Function to start bamazon and display products
 var displayProducts = function() {
 
-    console.log("Welcome to Bamazon! Please, find our inventory bellow.");
+    console.log("Welcome, Our product lising is below.");
 
     //Query DB
     connection.query("SELECT * FROM products", function(err, res) {
@@ -59,7 +59,7 @@ var displayProducts = function() {
         }, {
             name: "quantity",
             type: "input",
-            message: "How many of this product would you like to buy?",
+            message: "How many items would you like to buy of this product?",
             validate: function(value) {
              if (isNaN(value) === false) {
                  return true;
@@ -83,14 +83,14 @@ function purchase(ID, quantityNeeded) {
         if (quantityNeeded <= res[0].stock_quantity) {
             var totalCost = res[0].price * quantityNeeded;
 
-            console.log("Your total is $" + totalCost + ". Thank you for your purchase!");
+            console.log("Your total is $" + totalCost + ". Thank you shopping!");
 
             //Update quantity in the DB
             connection.query("UPDATE products SET stock_quantity = stock_quantity - " + quantityNeeded + " WHERE item_id = " + ID);
         
         } else {
 
-            console.log("We don't have enough of that item to fulfill your order.");
+            console.log("Sorry, we're out of stock for your order.");
         };
         //Callback to displayProducts function.
         displayProducts();
