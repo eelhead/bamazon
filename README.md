@@ -11,4 +11,6 @@ List of items in stock and asking buyer for thier choice.
 
 
 Now it shows changes after chosing items
+
+
 ![pictwo](https://user-images.githubusercontent.com/31674994/36649315-6b52e874-1a59-11e8-8636-819db25d325b.png)
